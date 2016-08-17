@@ -2,6 +2,8 @@
 
 namespace Spatie\Regex;
 
+use Exception;
+
 class ReplaceResult extends RegexResult
 {
     /** @var string|array */
