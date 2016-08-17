@@ -55,7 +55,7 @@ class MatchResult extends RegexResult
 
     public function group(int $index): string
     {
-        if (! isset($this->matches[$index])) {
+        if (!isset($this->matches[$index])) {
             throw RegexFailed::groupDoesntExist($this->pattern, $this->subject, $index);
         }
 
