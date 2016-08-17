@@ -12,7 +12,6 @@ class Arr
     public static function transpose(array $array): array
     {
         if (count($array) === 1) {
-
             $array = static::first($array);
 
             return array_map(function ($element) {
