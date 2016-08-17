@@ -24,6 +24,6 @@ class RegexFailed extends Exception
             return $string;
         }
 
-        return substr($string, 0, 40) . '...';
+        return substr($string, 0, 40).'...';
     }
 }
