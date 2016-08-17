@@ -13,4 +13,9 @@ class Regex
     {
         return MatchAllResult::for($pattern, $subject);
     }
+
+    public static function replace($pattern, $replacement, $subject, $limit = -1)
+    {
+        return ReplaceResult::for($pattern, $replacement, $subject, $limit);
+    }
 }

@@ -13,6 +13,13 @@ class RegexFailed extends Exception
         return new static("Error matching pattern `{$pattern}` with subject `{$subject}`. {$message}");
     }
 
+    public static function replace(string $pattern, string $subject, string $message): self
+    {
+        $subject = static::trimString($subject);
+
+        return new static("Error replacing pattern `{$pattern}` in subject `{$subject}`. {$message}");
+    }
+
     public static function groupDoesntExist(string $pattern, string $subject, int $index): self
     {
         return new static("Pattern `{$pattern}` with subject `{$subject}` didn't capture a group at index {$index}");
