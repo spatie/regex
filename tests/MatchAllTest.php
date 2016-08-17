@@ -9,14 +9,14 @@ use Spatie\Regex\RegexFailed;
 class MatchAllTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
-    function it_can_determine_if_a_match_was_made()
+    public function it_can_determine_if_a_match_was_made()
     {
         $this->assertTrue(Regex::matchAll('/a/', 'aaa')->hasMatch());
         $this->assertFalse(Regex::matchAll('/b/', 'aaa')->hasMatch());
     }
 
     /** @test */
-    function it_can_retrieve_the_matched_results()
+    public function it_can_retrieve_the_matched_results()
     {
         $results = Regex::matchAll('/a/', 'aaa')->results();
 
@@ -27,13 +27,13 @@ class MatchAllTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_returns_an_empty_array_if_a_result_is_queried_for_a_subject_that_didnt_match_a_pattern()
+    public function it_returns_an_empty_array_if_a_result_is_queried_for_a_subject_that_didnt_match_a_pattern()
     {
         $this->assertEmpty(Regex::matchAll('/abc/', 'def')->results());
     }
 
     /** @test */
-    function it_throws_an_exception_if_a_match_throws_an_error()
+    public function it_throws_an_exception_if_a_match_throws_an_error()
     {
         $this->expectException(RegexFailed::class);
         $this->expectExceptionMessage(
@@ -44,7 +44,7 @@ class MatchAllTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_throws_an_exception_if_a_match_throws_a_preg_error()
+    public function it_throws_an_exception_if_a_match_throws_a_preg_error()
     {
         $this->expectException(RegexFailed::class);
         $this->expectExceptionMessage(
@@ -55,7 +55,7 @@ class MatchAllTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_retrieve_groups_from_the_matched_results()
+    public function it_can_retrieve_groups_from_the_matched_results()
     {
         $results = Regex::matchAll('/a(b)/', 'abab')->results();
 

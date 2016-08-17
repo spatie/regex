@@ -9,14 +9,14 @@ use Spatie\Regex\RegexFailed;
 class MatchTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
-    function it_can_determine_if_a_match_was_made()
+    public function it_can_determine_if_a_match_was_made()
     {
         $this->assertTrue(Regex::match('/abc/', 'abc')->hasMatch());
         $this->assertFalse(Regex::match('/abc/', 'def')->hasMatch());
     }
 
     /** @test */
-    function it_throws_an_exception_if_a_match_throws_an_error()
+    public function it_throws_an_exception_if_a_match_throws_an_error()
     {
         $this->expectException(RegexFailed::class);
         $this->expectExceptionMessage(
@@ -27,7 +27,7 @@ class MatchTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_throws_an_exception_if_a_match_throws_a_preg_error()
+    public function it_throws_an_exception_if_a_match_throws_a_preg_error()
     {
         $this->expectException(RegexFailed::class);
         $this->expectExceptionMessage(
@@ -38,25 +38,25 @@ class MatchTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_retrieve_the_matched_result()
+    public function it_can_retrieve_the_matched_result()
     {
         $this->assertEquals('abc', Regex::match('/abc/', 'abcdef')->result());
     }
 
     /** @test */
-    function it_returns_null_if_a_result_is_queried_for_a_subject_that_didnt_match_a_pattern()
+    public function it_returns_null_if_a_result_is_queried_for_a_subject_that_didnt_match_a_pattern()
     {
         $this->assertNull(Regex::match('/abc/', 'def')->result());
     }
 
     /** @test */
-    function it_can_retrieve_a_matched_group()
+    public function it_can_retrieve_a_matched_group()
     {
         $this->assertEquals('a', Regex::match('/(a)bc/', 'abcdef')->group(1));
     }
 
     /** @test */
-    function it_throws_an_exception_if_a_non_existing_group_is_queried()
+    public function it_throws_an_exception_if_a_non_existing_group_is_queried()
     {
         $this->expectException(RegexFailed::class);
         $this->expectExceptionMessage(RegexFailed::groupDoesntExist('/(a)bc/', 'abcdef', 2)->getMessage());
