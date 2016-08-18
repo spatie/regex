@@ -4,7 +4,7 @@ namespace Spatie\Regex\Helpers;
 
 class Arr
 {
-    public static function map(array $array, $callback): array
+    public static function map(array $array, callable $callback): array
     {
         return array_map($callback, $array);
     }
@@ -22,6 +22,11 @@ class Arr
         return array_map(null, ...$array);
     }
 
+    /**
+     * @param array $array
+     *
+     * @return mixed
+     */
     public static function first(array $array)
     {
         return reset($array);

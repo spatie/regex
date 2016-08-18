@@ -3,7 +3,10 @@
     "description": "A sane interface for php's built in preg_* functions",
     "keywords": [
         "spatie",
-        "regex"
+        "regex",
+        "regular",
+        "expression",
+        "expressions"
     ],
     "homepage": "https://github.com/spatie/regex",
     "license": "MIT",

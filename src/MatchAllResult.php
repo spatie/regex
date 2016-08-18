@@ -27,6 +27,14 @@ class MatchAllResult extends RegexResult
         $this->matches = $matches;
     }
 
+    /**
+     * @param string $pattern
+     * @param string $subject
+     *
+     * @return static
+     *
+     * @throws \Spatie\Regex\RegexFailed
+     */
     public static function for(string $pattern, string $subject)
     {
         $matches = [];
