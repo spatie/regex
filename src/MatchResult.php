@@ -18,11 +18,11 @@ class MatchResult extends RegexResult
     /** @var array */
     protected $matches;
 
-    public function __construct(string $pattern, string $subject, bool $result, array $matches)
+    public function __construct(string $pattern, string $subject, bool $hasMatch, array $matches)
     {
         $this->pattern = $pattern;
         $this->subject = $subject;
-        $this->hasMatch = $result;
+        $this->hasMatch = $hasMatch;
         $this->matches = $matches;
     }
 
