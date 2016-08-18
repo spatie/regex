@@ -36,7 +36,6 @@ class ReplaceResult extends RegexResult
             list($result, $count) = is_callable($replacement) ?
                 static::doReplacementWithCallable($pattern, $replacement, $subject, $limit) :
                 static::doReplacement($pattern, $replacement, $subject, $limit);
-
         } catch (Exception $exception) {
             throw RegexFailed::replace($pattern, $subject, $exception->getMessage());
         }
