@@ -5,6 +5,7 @@
         "spatie",
         "regex",
         "regular",
+        "expression",
         "expressions"
     ],
     "homepage": "https://github.com/spatie/regex",
