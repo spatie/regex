@@ -30,7 +30,7 @@ class ReplaceResult extends RegexResult
         $this->count = $count;
     }
 
-    public static function for($pattern, $replacement, $subject, $limit): self
+    public static function for($pattern, $replacement, $subject, $limit)
     {
         try {
             list($result, $count) = is_callable($replacement) ?
@@ -70,7 +70,7 @@ class ReplaceResult extends RegexResult
     }
 
     /**
-     * @return array|string
+     * @return string|array
      */
     public function result()
     {

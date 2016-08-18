@@ -57,7 +57,7 @@ class MatchResult extends RegexResult
     }
 
     /**
-     * @return mixed|null
+     * @return string|null
      */
     public function result()
     {
