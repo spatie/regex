@@ -8,9 +8,30 @@
 [![StyleCI](https://styleci.io/repos/65915598/shield)](https://styleci.io/repos/65915598)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/regex.svg?style=flat-square)](https://packagist.org/packages/spatie/regex)
 
-**WORK IN PROGRESS** 
+Php's built in `preg_*` functions require some odd patterns like passing variables by reference and treating `false` or `null` values as errors. `spatie/regex` provides a cleaner interface for `preg_match`, `preg_match_all`, `preg_replace` and `preg_replace_callback`.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+```php
+use Spatie\Regex\Regex;
+
+// Using `match`
+Regex::match('/a/', 'abc'); // `MatchResult` object
+Regex::match('/a/', 'abc')->hasMatch(); // true
+Regex::match('/a/', 'abc')->result(); // 'a'
+
+// Capturing groups with `match`
+Regex::match('/a(b)/', 'abc')->result(); // 'ab'
+Regex::match('/a(b)/', 'abc')->group(1); // 'a'
+
+// Using `matchAll`
+Regex::matchAll('/a/', 'abcabc')->hasMatch(); // true
+Regex::matchAll('/a/', 'abcabc')->results(); // Array of `MatchResult` objects
+
+// Using replace
+Regex::replace('/a/', 'b', 'abc')->result(); // 'bbc';
+Regex::replace('/a/', function (MatchResult $result) {
+    return $result->result() . 'Hello!';
+}, 'abc')->result(); // 'aHello!bc';
+```
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
@@ -61,6 +82,7 @@ If you discover any security related issues, please email freek@spatie.be instea
 - [All Contributors](../../contributors)
 
 ## About Spatie
+
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## License
