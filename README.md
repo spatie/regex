@@ -53,7 +53,7 @@ composer require spatie/regex
 
 ## Usage
 
-### `match`
+### `Regex::match`
 
 Matches a pattern on a subject. Returns a `MatchResult` object for the first match.
 
@@ -94,7 +94,7 @@ Regex::match('/a(b)c/', 'abc')->group(1); // 'b'
 Regex::match('/a(b)c/', 'abc')->group(2); // `RegexFailed` exception
 ```
 
-### `matchAll`
+### `Regex::matchAll`
 
 Matches a pattern on a subject. Returns a `MatchAllResult` object containing all matches.
 
@@ -131,7 +131,7 @@ $results[1]->result(); // 'abd'
 $results[1]->group(1); // 'd'
 ```
 
-### `replace`
+### `Regex::replace`
 
 Replaces a pattern in a subject. Returns a `ReplaceResult` object.
 
