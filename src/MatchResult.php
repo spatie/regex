@@ -26,6 +26,14 @@ class MatchResult extends RegexResult
         $this->matches = $matches;
     }
 
+    /**
+     * @param string $pattern
+     * @param string $subject
+     *
+     * @return static
+     *
+     * @throws \Spatie\Regex\RegexFailed
+     */
     public static function for(string $pattern, string $subject)
     {
         $matches = [];
@@ -48,6 +56,9 @@ class MatchResult extends RegexResult
         return $this->hasMatch;
     }
 
+    /**
+     * @return mixed|null
+     */
     public function result()
     {
         return $this->matches[0] ?? null;
