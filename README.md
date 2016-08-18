@@ -53,10 +53,119 @@ composer require spatie/regex
 
 ## Usage
 
-``` php
-$skeleton = new Spatie\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+### `match`
+
+Matches a pattern on a subject. Returns a `MatchResult` object for the first match.
+
+```php
+/**
+ * @param string $pattern
+ * @param string $subject
+ *
+ * @return \Spatie\Regex\MatchResult
+ */
+Regex::match(string $pattern, string $subject): MatchResult
 ```
+
+#### `MatchResult::hasMatch(): bool`
+
+Checks if the pattern matches the subject.
+
+```php
+Regex::match('/abc/', 'abc')->hasMatch(); // true
+Regex::match('/def/', 'abc')->hasMatch(); // false
+```
+
+#### `MatchResult::result(): string`
+
+Return the full match that was made. Returns `null` if no match was made.
+
+```php
+Regex::match('/abc/', 'abc')->result(); // 'abc'
+Regex::match('/def/', 'abc')->result(); // null
+```
+
+#### `MatchResult::group(int $id): string`
+
+Return the contents of a captured group (with a 1-based index). Throws a `RegexFailed` exception if the group doesn't exist.
+
+```php
+Regex::match('/a(b)c/', 'abc')->group(1); // 'b'
+Regex::match('/a(b)c/', 'abc')->group(2); // `RegexFailed` exception
+```
+
+### `matchAll`
+
+Matches a pattern on a subject. Returns a `MatchAllResult` object containing all matches.
+
+```php
+/**
+ * @param string $pattern
+ * @param string $subject
+ *
+ * @return \Spatie\Regex\MatchAllResult
+ */
+public static function matchAll(string $pattern, string $subject): MatchAllResult
+```
+
+#### `MatchAllResult::hasMatch(): bool`
+
+Checks if the pattern matches the subject.
+
+```php
+Regex::matchAll('/abc/', 'abc')->hasMatch(); // true
+Regex::matchAll('/abc/', 'abcabc')->hasMatch(); // true
+Regex::matchAll('/def/', 'abc')->hasMatch(); // false
+```
+
+#### `MatchAllResult::results(): array`
+
+Returns an array of `MatchResult` objects.
+
+```php
+$results = Regex::matchAll('/ab([a-z])/', 'abcabd')->results();
+
+$results[0]->result(); // 'abc'
+$results[0]->group(1); // 'c'
+$results[1]->result(); // 'abd'
+$results[1]->group(1); // 'd'
+```
+
+### `replace`
+
+Replaces a pattern in a subject. Returns a `ReplaceResult` object.
+
+```php
+/**
+ * @param string|array $pattern
+ * @param string|array|callable $replacement
+ * @param string|array $subject
+ * @param int $limit
+ *
+ * @return \Spatie\Regex\ReplaceResult
+ */
+public static function replace($pattern, $replacement, $subject, $limit = -1): ReplaceResult
+```
+
+#### `ReplaceResult::result(): mixed`
+
+```php
+Regex::replace('/a/', 'b', 'abc')->result(); // 'bbc'
+```
+
+`Regex::replace` also works with callables. The callable will receive a `MatchResult` instance as it's argument.
+
+```php
+Regex::replace('/a/', function (MatchResult $matchResult) {
+    return str_repeat($matchResult->result(), 2);
+}, 'abc')->result(); // 'aabc'
+```
+
+Patterns, replacements and subjects can also be arrays. `Regex::replace` behaves exactly like [`preg_replace`](http://php.net/manual/en/function.preg-replace.php) in those instances.
+
+### Error handling
+
+If anything goes wrong in a `Regex` method, a `RegexFailed` exception gets thrown. No need for checking `preg_last_error()`.
 
 ## Changelog
 
