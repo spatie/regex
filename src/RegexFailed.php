@@ -25,6 +25,11 @@ class RegexFailed extends Exception
         return new static("Pattern `{$pattern}` with subject `{$subject}` didn't capture a group at index {$index}");
     }
 
+    public static function namedGroupDoesntExist(string $pattern, string $subject, string $group): self
+    {
+        return new static("Pattern `{$pattern}` with subject `{$subject}` didn't capture a group with name {$group}");
+    }
+
     protected static function trimString(string $string): string
     {
         if (strlen($string) < 40) {

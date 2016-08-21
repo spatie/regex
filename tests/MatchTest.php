@@ -63,4 +63,20 @@ class MatchTest extends PHPUnit_Framework_TestCase
 
         Regex::match('/(a)bc/', 'abcdef')->group(2);
     }
+
+    /** @test */
+    public function it_can_retrieve_a_matched_group_by_name()
+    {
+        $this->assertEquals('a', Regex::match('/(?P<mygroup>a)bc/', 'abcdef')->namedGroup('mygroup'));
+    }
+
+    /** @test */
+    public function it_throws_an_exception_if_a_non_existing_named_group_is_queried()
+    {
+        $this->expectException(RegexFailed::class);
+        $this->expectExceptionMessage(RegexFailed::namedGroupDoesntExist('/(?P<mygroup>a)bc/', 'abcdef', 'othergroup')->getMessage());
+
+        Regex::match('/(?P<mygroup>a)bc/', 'abcdef')->namedGroup('othergroup');
+    }
+
 }

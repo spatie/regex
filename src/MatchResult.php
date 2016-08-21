@@ -72,4 +72,19 @@ class MatchResult extends RegexResult
 
         return $this->matches[$index];
     }
+
+    /**
+     * @param string $group
+     *
+     * @return string
+     * @throws RegexFailed
+     */
+    public function namedGroup(string $group): string
+    {
+        if (! isset($this->matches[$group])) {
+            throw RegexFailed::namedGroupDoesntExist($this->pattern, $this->subject, $group);
+        }
+
+        return $this->matches[$group];
+    }
 }
