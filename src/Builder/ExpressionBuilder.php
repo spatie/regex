@@ -2,14 +2,8 @@
 
 namespace Spatie\Regex\Builder;
 
-/**
- * Class ExpressionBuilder
- *
- * @package Spatie\Regex\Builder
- */
 class ExpressionBuilder
 {
-
     /**
      * @return ExpressionBuilder
      */
@@ -177,7 +171,7 @@ class ExpressionBuilder
      */
     public function lazyOneOrMoreTimes(): string
     {
-        return $this->oneOrMoreTimes() . '?';
+        return $this->oneOrMoreTimes().'?';
     }
 
     /**
@@ -199,7 +193,7 @@ class ExpressionBuilder
      */
     public function lazyBetweenTimes(int $n, int $m): string
     {
-        return $this->betweenTimes($n, $m) . '?';
+        return $this->betweenTimes($n, $m).'?';
     }
 
     /**
@@ -213,7 +207,7 @@ class ExpressionBuilder
     }
 
     /**
-     * This method requires the free spaces modifier 'x'
+     * This method requires the free spaces modifier 'x'.
      *
      * @param string $comment
      *
@@ -240,7 +234,7 @@ class ExpressionBuilder
      *
      * @return string
      */
-    public function alternate(... $expressions): string
+    public function alternate(...$expressions): string
     {
         return implode('|', $expressions);
     }
@@ -250,7 +244,7 @@ class ExpressionBuilder
      *
      * @return string
      */
-    public function concat(... $expressions): string
+    public function concat(...$expressions): string
     {
         return implode('', $expressions);
     }

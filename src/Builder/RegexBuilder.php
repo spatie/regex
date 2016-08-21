@@ -5,14 +5,8 @@ namespace Spatie\Regex\Builder;
 use Spatie\Regex\Regex;
 use Spatie\Regex\RegexFailed;
 
-/**
- * Class RegexBuilder
- *
- * @package Spatie\Regex\Builder
- */
 class RegexBuilder
 {
-
     const DEFAULT_DELIMITER = '/';
 
     /**
@@ -46,34 +40,29 @@ class RegexBuilder
     private $expressions = [];
 
     /**
-     * @var string
-     */
-    private $delimiter = '';
-
-    /**
      * RegexBuilder constructor.
      *
-     * @param array  $parts
+     * @param array  $expressions
      * @param string $delimiter
      * @param array  $modifiers
      */
-    public function __construct(array $parts = [], $delimiter = self::DEFAULT_DELIMITER, array $modifiers = [])
+    public function __construct(array $expressions = [], $delimiter = self::DEFAULT_DELIMITER, array $modifiers = [])
     {
-        $this->parts = $parts;
+        $this->expressions = $expressions;
         $this->setDelimiter($delimiter);
         $this->addModifiers($modifiers);
     }
 
     /**
-     * @param array  $parts
+     * @param array  $expressions
      * @param string $delimiter
      * @param array  $modifiers
      *
      * @return RegexBuilder
      */
-    public static function create(array $parts = [], $delimiter = self::DEFAULT_DELIMITER, array $modifiers = []): self
+    public static function create(array $expressions = [], $delimiter = self::DEFAULT_DELIMITER, array $modifiers = []): self
     {
-        return new self($parts, $delimiter, $modifiers);
+        return new self($expressions, $delimiter, $modifiers);
     }
 
     /**
@@ -129,6 +118,7 @@ class RegexBuilder
         }
 
         $this->modifiers[] = $modifier;
+
         return $this;
     }
 
@@ -203,7 +193,7 @@ class RegexBuilder
      */
     public function removeModifier(string $modifier): self
     {
-        if (!$this->hasModifier($modifier)) {
+        if (! $this->hasModifier($modifier)) {
             return $this;
         }
 
@@ -244,7 +234,7 @@ class RegexBuilder
         array_unshift($parts, $this->startsWith);
         array_push($parts, $this->endsWith);
 
-        $meta = $this->startDelimiter . '%2$s%1$s%2$s' . $this->endDelimiter . implode('', $this->modifiers);
+        $meta = $this->startDelimiter.'%2$s%1$s%2$s'.$this->endDelimiter.implode('', $this->modifiers);
         $expression = implode($glue, array_filter($parts));
         $pattern = sprintf($meta, $expression, $glue);
 

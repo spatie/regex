@@ -5,7 +5,7 @@ namespace Spatie\Regex;
 class Regex
 {
     /**
-     * Modifiers
+     * Modifiers.
      * @see http://php.net/manual/en/reference.pcre.pattern.modifiers.php
      */
     const MODIFIERS_ALL = 'imsxuADU';
@@ -21,7 +21,7 @@ class Regex
     const MODIFIER_PCRE_UNGREEDY = 'U';
 
     /**
-     * Delimiters
+     * Delimiters.
      * @see http://php.net/manual/en/regexp.reference.delimiters.php
      */
     const DELIMITER_BRACKET_STYLE_START = '({[<';

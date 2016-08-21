@@ -78,5 +78,4 @@ class MatchTest extends PHPUnit_Framework_TestCase
 
         Regex::match('/(?P<mygroup>a)bc/', 'abcdef')->namedGroup('othergroup');
     }
-
 }

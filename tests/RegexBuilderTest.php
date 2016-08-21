@@ -7,23 +7,17 @@ use Spatie\Regex\Builder\RegexBuilder;
 use Spatie\Regex\Regex;
 use Spatie\Regex\RegexFailed;
 
-/**
- * Class RegexBuilderTest
- *
- * @package Spatie\Regex\Test
- */
 class RegexBuilderTest extends \PHPUnit_Framework_TestCase
 {
-
     /** @test */
-    function it_builds_a_regex()
+    public function it_builds_a_regex()
     {
         $builder = RegexBuilder::create();
         $this->assertEquals('//', $builder->getRegex());
     }
 
     /** @test */
-    function it_throws_an_exception_on_invalid_regex()
+    public function it_throws_an_exception_on_invalid_regex()
     {
         $builder = RegexBuilder::create();
         $builder->addExpression('InvalidRegular)Expression');
@@ -32,7 +26,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_add_expression_parts()
+    public function it_can_add_expression_parts()
     {
         $builder = RegexBuilder::create();
         $builder->addExpression('(otherpart)');
@@ -40,7 +34,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_anchor_starting_expressions()
+    public function it_can_anchor_starting_expressions()
     {
         $builder = RegexBuilder::create();
         $builder->startsWith('^start');
@@ -49,7 +43,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_anchor_ending_expressions()
+    public function it_can_anchor_ending_expressions()
     {
         $builder = RegexBuilder::create();
         $builder->endsWith('end$');
@@ -58,7 +52,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_anchor_both_start_and_ending_expressions()
+    public function it_can_anchor_both_start_and_ending_expressions()
     {
         $builder = RegexBuilder::create();
         $builder->startsWith('^start');
@@ -68,7 +62,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_add_a_modifier()
+    public function it_can_add_a_modifier()
     {
         $builder = RegexBuilder::create();
         $builder->addModifier(Regex::MODIFIER_MULTILINE);
@@ -76,7 +70,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_knows_modifier_is_added()
+    public function it_knows_modifier_is_added()
     {
         $builder = RegexBuilder::create();
         $builder->addModifier(Regex::MODIFIER_MULTILINE);
@@ -85,7 +79,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_not_add_multi_char_modifier()
+    public function it_can_not_add_multi_char_modifier()
     {
         $builder = RegexBuilder::create();
         $this->expectException(RegexFailed::class);
@@ -93,7 +87,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_not_add_unsupported_modifier()
+    public function it_can_not_add_unsupported_modifier()
     {
         $builder = RegexBuilder::create();
         $this->expectException(RegexFailed::class);
@@ -101,7 +95,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_add_multiple_modifiers()
+    public function it_can_add_multiple_modifiers()
     {
         $builder = RegexBuilder::create();
         $builder->addModifiers([Regex::MODIFIER_MULTILINE, Regex::MODIFIER_FREE_SPACING_MODE]);
@@ -109,7 +103,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_remove_modifiers()
+    public function it_can_remove_modifiers()
     {
         $builder = RegexBuilder::create();
         $builder->addModifier(Regex::MODIFIER_MULTILINE);
@@ -118,7 +112,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_mark_as_case_insensitive()
+    public function it_can_mark_as_case_insensitive()
     {
         $builder = RegexBuilder::create();
         $builder->isCaseInsensitive();
@@ -126,7 +120,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_mark_as_multiline()
+    public function it_can_mark_as_multiline()
     {
         $builder = RegexBuilder::create();
         $builder->isMultiline();
@@ -134,7 +128,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_mark_as_unicode()
+    public function it_can_mark_as_unicode()
     {
         $builder = RegexBuilder::create();
         $builder->isUnicode();
@@ -142,7 +136,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_mark_as_free_spacing()
+    public function it_can_mark_as_free_spacing()
     {
         $builder = RegexBuilder::create();
         $builder->isFreeSpacing();
@@ -150,7 +144,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_set_a_delimiter()
+    public function it_can_set_a_delimiter()
     {
         $builder = RegexBuilder::create();
         $builder->setDelimiter('#');
@@ -158,7 +152,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_use_bracket_delimiters()
+    public function it_can_use_bracket_delimiters()
     {
         $builder = RegexBuilder::create();
 
@@ -176,7 +170,7 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_not_set_an_multi_character_delimiter()
+    public function it_can_not_set_an_multi_character_delimiter()
     {
         $this->expectException(RegexFailed::class);
 
@@ -185,17 +179,16 @@ class RegexBuilderTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_output_multiline_regexes()
+    public function it_can_output_multiline_regexes()
     {
         $builder = RegexBuilder::create();
         $expr = ExpressionBuilder::create();
         $builder
             ->isFreeSpacing()
             ->addExpression($expr->extendedComment('This one matches everything'))
-            ->addExpression($expr->group('.*'))
-        ;
+            ->addExpression($expr->group('.*'));
 
-        $expected = <<<EOF
+        $expected = <<<'EOF'
 /
 # This one matches everything
 (.*)
