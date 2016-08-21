@@ -121,7 +121,7 @@ class RegexBuilder
     public function addModifier(string $modifier): self
     {
         if (strlen($modifier) !== 1 || false === strpos(Regex::MODIFIERS_ALL, $modifier)) {
-            throw new RegexFailed('Invalid regex modifier: ' . $modifier);
+            throw RegexFailed::invalidModifier($modifier);
         }
 
         if ($this->hasModifier($modifier)) {
@@ -221,7 +221,7 @@ class RegexBuilder
     public function setDelimiter(string $delimiter): self
     {
         if (strlen($delimiter) !== 1) {
-            throw new RegexFailed('Invalid regex delimiter: ' . $delimiter);
+            throw RegexFailed::invalidDelimiter($delimiter);
         }
 
         $bracketPos = strpos(Regex::DELIMITER_BRACKET_STYLE_START, $delimiter);

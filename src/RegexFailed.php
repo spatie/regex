@@ -30,6 +30,26 @@ class RegexFailed extends Exception
         return new static("Pattern `{$pattern}` with subject `{$subject}` didn't capture a group with name {$group}");
     }
 
+    /**
+     * @param string $modifier
+     *
+     * @return RegexFailed
+     */
+    public static function invalidModifier(string $modifier): self
+    {
+        return new static("Invalid delimiter: {$modifier}");
+    }
+
+    /**
+     * @param string $delimiter
+     *
+     * @return RegexFailed
+     */
+    public static function invalidDelimiter(string $delimiter): self
+    {
+        return new static("Invalid delimiter: {$delimiter}");
+    }
+
     protected static function trimString(string $string): string
     {
         if (strlen($string) < 40) {
