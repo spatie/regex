@@ -64,12 +64,39 @@ class MatchResult extends RegexResult
         return $this->matches[0] ?? null;
     }
 
+    /**
+     * Match group by index.
+     *
+     * @param int $index
+     *
+     * @return string
+     *
+     * @throws RegexFailed
+     */
     public function group(int $index): string
     {
         if (! isset($this->matches[$index])) {
-            throw RegexFailed::groupDoesntExist($this->pattern, $this->subject, $index);
+            throw RegexFailed::indexedGroupDoesntExist($this->pattern, $this->subject, $index);
         }
 
         return $this->matches[$index];
+    }
+
+    /**
+     * Match group by name.
+     *
+     * @param string $groupName
+     *
+     * @return string
+     *
+     * @throws RegexFailed
+     */
+    public function namedGroup(string $groupName): string
+    {
+        if (! isset($this->matches[$groupName])) {
+            throw RegexFailed::namedGroupDoesntExist($this->pattern, $this->subject, $groupName);
+        }
+
+        return $this->matches[$groupName];
     }
 }

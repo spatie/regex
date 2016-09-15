@@ -20,9 +20,14 @@ class RegexFailed extends Exception
         return new static("Error replacing pattern `{$pattern}` in subject `{$subject}`. {$message}");
     }
 
-    public static function groupDoesntExist(string $pattern, string $subject, int $index): self
+    public static function indexedGroupDoesntExist(string $pattern, string $subject, int $index): self
     {
         return new static("Pattern `{$pattern}` with subject `{$subject}` didn't capture a group at index {$index}");
+    }
+
+    public static function namedGroupDoesntExist(string $pattern, string $subject, string $groupName): self
+    {
+        return new static("Pattern `{$pattern}` with subject `{$subject}` didn't capture a group named {$groupName}");
     }
 
     protected static function trimString(string $string): string

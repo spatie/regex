@@ -59,8 +59,25 @@ class MatchTest extends PHPUnit_Framework_TestCase
     public function it_throws_an_exception_if_a_non_existing_group_is_queried()
     {
         $this->expectException(RegexFailed::class);
-        $this->expectExceptionMessage(RegexFailed::groupDoesntExist('/(a)bc/', 'abcdef', 2)->getMessage());
+        $this->expectExceptionMessage(RegexFailed::indexedGroupDoesntExist('/(a)bc/', 'abcdef', 2)->getMessage());
 
         Regex::match('/(a)bc/', 'abcdef')->group(2);
+    }
+
+    /** @test */
+    public function it_can_retrieve_a_matched_named_group()
+    {
+        $this->assertSame('a', Regex::match('/(?<samename>a)bc/', 'abcdef')->namedGroup('samename'));
+    }
+
+    /** @test */
+    public function it_throws_an_exception_if_a_non_existing_named_group_is_queued()
+    {
+        $this->expectException(RegexFailed::class);
+        $this->expectExceptionMessage(
+            RegexFailed::namedGroupDoesntExist('/(?<samename>a)bc/', 'abcdef', 'invalidname')->getMessage()
+        );
+
+        Regex::match('/(?<samename>a)bc/', 'abcdef')->namedGroup('invalidname');
     }
 }
