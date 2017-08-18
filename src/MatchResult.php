@@ -67,7 +67,7 @@ class MatchResult extends RegexResult
     /**
      * @param string $default
      *
-     * @return null|string
+     * @return string
      */
     public function resultOr($default)
     {
