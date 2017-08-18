@@ -80,4 +80,36 @@ class MatchTest extends PHPUnit_Framework_TestCase
 
         Regex::match('/(?<samename>a)bc/', 'abcdef')->namedGroup('invalidname');
     }
+
+    /** @test */
+    public function it_returns_matched_value_even_if_there_is_default()
+    {
+        $value = Regex::match('/blue/', 'blue')->resultOr('black');
+
+        $this->assertSame('blue', $value);
+    }
+
+    /** @test */
+    public function it_returns_default_value_if_there_is_no_match()
+    {
+        $value = Regex::match('/blue/', 'yellow')->resultOr('black');
+
+        $this->assertSame('black', $value);
+    }
+
+    /** @test */
+    public function it_returns_matched_group_value_even_if_there_is_default()
+    {
+        $value = Regex::match('/the sky is (.+)/', 'the sky is orange')->groupOr(1,'blue');
+
+        $this->assertSame('orange', $value);
+    }
+
+    /** @test */
+    public function it_returns_default_value_if_there_is_no_group()
+    {
+        $value = Regex::match('/the sky is (.+)/', 'abc')->groupOr(1,'blue');
+
+        $this->assertSame('blue', $value);
+    }
 }
