@@ -22,6 +22,10 @@ Regex::match('/a/', 'abc')->result(); // 'a'
 Regex::match('/a(b)/', 'abc')->result(); // 'ab'
 Regex::match('/a(b)/', 'abc')->group(1); // 'a'
 
+// Setting defaults
+Regex::match('/a(b)/', 'xyz')->resultOr('default'); // 'default'
+Regex::match('/a(b)/', 'xyz')->groupOr(1, 'default'); // 'default'
+
 // Using `matchAll`
 Regex::matchAll('/a/', 'abcabc')->hasMatch(); // true
 Regex::matchAll('/a/', 'abcabc')->results(); // Array of `MatchResult` objects

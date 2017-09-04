@@ -65,6 +65,16 @@ class MatchResult extends RegexResult
     }
 
     /**
+     * @param string $default
+     *
+     * @return string
+     */
+    public function resultOr($default)
+    {
+        return $this->result() ?? $default;
+    }
+
+    /**
      * Match group by index.
      *
      * @param int $index
@@ -80,6 +90,25 @@ class MatchResult extends RegexResult
         }
 
         return $this->matches[$index];
+    }
+
+    /**
+     * Match group by index or return default value if group doesn't exist.
+     *
+     * @param int $index
+     * @param string $default
+     *
+     * @return string
+     *
+     * @throws RegexFailed
+     */
+    public function groupOr(int $index, $default): string
+    {
+        try {
+            return $this->group($index);
+        } catch (RegexFailed $e) {
+            return $default;
+        }
     }
 
     /**
