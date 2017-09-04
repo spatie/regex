@@ -100,7 +100,7 @@ class MatchTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_returns_matched_group_value_even_if_there_is_default()
     {
-        $value = Regex::match('/the sky is (.+)/', 'the sky is orange')->groupOr(1,'blue');
+        $value = Regex::match('/the sky is (.+)/', 'the sky is orange')->groupOr(1, 'blue');
 
         $this->assertSame('orange', $value);
     }
@@ -108,7 +108,7 @@ class MatchTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_returns_default_value_if_there_is_no_group()
     {
-        $value = Regex::match('/the sky is (.+)/', 'abc')->groupOr(1,'blue');
+        $value = Regex::match('/the sky is (.+)/', 'abc')->groupOr(1, 'blue');
 
         $this->assertSame('blue', $value);
     }
