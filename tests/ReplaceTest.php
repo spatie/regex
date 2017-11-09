@@ -4,9 +4,9 @@ namespace Spatie\Regex\Test;
 
 use Spatie\Regex\Regex;
 use Spatie\Regex\MatchResult;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ReplaceTest extends PHPUnit_Framework_TestCase
+class ReplaceTest extends TestCase
 {
     /** @test */
     public function it_can_replace_a_pattern_with_a_string()
