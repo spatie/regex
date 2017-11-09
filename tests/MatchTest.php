@@ -4,9 +4,9 @@ namespace Spatie\Regex\Test;
 
 use Spatie\Regex\Regex;
 use Spatie\Regex\RegexFailed;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class MatchTest extends PHPUnit_Framework_TestCase
+class MatchTest extends TestCase
 {
     /** @test */
     public function it_can_determine_if_a_match_was_made()
