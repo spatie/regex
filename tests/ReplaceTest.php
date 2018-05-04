@@ -15,6 +15,15 @@ class ReplaceTest extends TestCase
     }
 
     /** @test */
+    public function it_throws_exception_on_invalid_pattern()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Error replacing pattern `/a` in subject `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...`. preg_replace(): No ending delimiter \'/\' found');
+
+        Regex::replace('/a', 'b', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')->result();
+    }
+
+    /** @test */
     public function it_can_replace_a_patterns_with_a_callback()
     {
         $this->assertEquals('ababc', Regex::replace('/a(b)/', function (MatchResult $match) {
