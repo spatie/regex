@@ -9,6 +9,8 @@ class Regex
      * @param string $subject
      *
      * @return \Spatie\Regex\MatchResult
+     *
+     * @throws RegexFailed
      */
     public static function match(string $pattern, string $subject): MatchResult
     {
@@ -20,6 +22,8 @@ class Regex
      * @param string $subject
      *
      * @return \Spatie\Regex\MatchAllResult
+     *
+     * @throws RegexFailed
      */
     public static function matchAll(string $pattern, string $subject): MatchAllResult
     {
@@ -27,12 +31,14 @@ class Regex
     }
 
     /**
-     * @param string|array $pattern
+     * @param string|array          $pattern
      * @param string|array|callable $replacement
-     * @param string|array $subject
-     * @param int $limit
+     * @param string|array          $subject
+     * @param int                   $limit
      *
      * @return \Spatie\Regex\ReplaceResult
+     *
+     * @throws RegexFailed
      */
     public static function replace($pattern, $replacement, $subject, $limit = -1): ReplaceResult
     {

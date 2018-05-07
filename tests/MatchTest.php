@@ -59,7 +59,7 @@ class MatchTest extends TestCase
     public function it_throws_an_exception_if_a_non_existing_group_is_queried()
     {
         $this->expectException(RegexFailed::class);
-        $this->expectExceptionMessage(RegexFailed::indexedGroupDoesntExist('/(a)bc/', 'abcdef', 2)->getMessage());
+        $this->expectExceptionMessage(RegexFailed::groupDoesntExist('/(a)bc/', 'abcdef', 2)->getMessage());
 
         Regex::match('/(a)bc/', 'abcdef')->group(2);
     }
@@ -75,7 +75,7 @@ class MatchTest extends TestCase
     {
         $this->expectException(RegexFailed::class);
         $this->expectExceptionMessage(
-            RegexFailed::namedGroupDoesntExist('/(?<samename>a)bc/', 'abcdef', 'invalidname')->getMessage()
+            RegexFailed::groupDoesntExist('/(?<samename>a)bc/', 'abcdef', 'invalidname')->getMessage()
         );
 
         Regex::match('/(?<samename>a)bc/', 'abcdef')->namedGroup('invalidname');
