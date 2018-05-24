@@ -31,14 +31,12 @@ class ReplaceResult extends RegexResult
     }
 
     /**
-     * @param string|array          $pattern
+     * @param string|array $pattern
      * @param string|array|callable $replacement
-     * @param string|array          $subject
-     * @param int                   $limit
+     * @param string|array $subject
+     * @param int $limit
      *
-     * @return ReplaceResult
-     *
-     * @throws RegexFailed
+     * @return \Spatie\Regex\ReplaceResult
      */
     public static function for($pattern, $replacement, $subject, $limit)
     {

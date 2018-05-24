@@ -58,7 +58,7 @@ class MatchAllResult extends RegexResult
     }
 
     /**
-     * @return MatchResult[]
+     * @return \Spatie\Regex\MatchResult[]
      */
     public function results(): array
     {

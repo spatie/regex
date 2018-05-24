@@ -75,7 +75,7 @@ class MatchResult extends RegexResult
     }
 
     /**
-     * Match group by index.
+     * Match group by index or name.
      *
      * @param int|string $group
      *
@@ -99,6 +99,8 @@ class MatchResult extends RegexResult
      * @param string     $default
      *
      * @return string
+     *
+     * @throws RegexFailed
      */
     public function groupOr($group, $default): string
     {
@@ -110,20 +112,16 @@ class MatchResult extends RegexResult
     }
 
     /**
-     * Match group by name.
+     * Match group by index or name.
      *
-     * @param int|string $groupName
+     * @param int|string $group
      *
      * @return string
      *
      * @throws RegexFailed
      */
-    public function namedGroup($groupName): string
+    public function namedGroup($group): string
     {
-        if (! isset($this->matches[$groupName])) {
-            throw RegexFailed::groupDoesntExist($this->pattern, $this->subject, $groupName);
-        }
-
-        return $this->matches[$groupName];
+    	  return $this->group($group);
     }
 }

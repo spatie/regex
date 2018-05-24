@@ -19,18 +19,18 @@ class Arr
             }, $array);
         }
 
-        $numHits = \count($array[0]);
-        $groups  = array_keys($array);
-        $r       = [];
+        $numHits = count($array[0]);
+        $groups = array_keys($array);
+        $result = [];
         for ($hit = 0; $hit < $numHits; ++$hit) {
             $group = [];
             foreach ($groups as $groupName) {
                 $group[$groupName] = $array[$groupName][$hit];
             }
-            $r[] = $group;
+            $result[] = $group;
         }
 
-        return $r;
+        return $result;
     }
 
     /**
