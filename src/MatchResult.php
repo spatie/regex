@@ -122,6 +122,6 @@ class MatchResult extends RegexResult
      */
     public function namedGroup($group): string
     {
-    	  return $this->group($group);
+        return $this->group($group);
     }
 }
