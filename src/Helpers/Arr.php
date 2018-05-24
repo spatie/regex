@@ -22,7 +22,7 @@ class Arr
         $numHits = count($array[0]);
         $groups = array_keys($array);
         $result = [];
-        for ($hit = 0; $hit < $numHits; ++$hit) {
+        for ($hit = 0; $hit < $numHits; $hit++) {
             $group = [];
             foreach ($groups as $groupName) {
                 $group[$groupName] = $array[$groupName][$hit];
