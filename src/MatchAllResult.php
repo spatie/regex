@@ -57,6 +57,9 @@ class MatchAllResult extends RegexResult
         return $this->hasMatch;
     }
 
+    /**
+     * @return \Spatie\Regex\MatchResult[]
+     */
     public function results(): array
     {
         return Arr::map(Arr::transpose($this->matches), function ($match): MatchResult {

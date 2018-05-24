@@ -75,57 +75,53 @@ class MatchResult extends RegexResult
     }
 
     /**
-     * Match group by index.
+     * Match group by index or name.
      *
-     * @param int $index
+     * @param int|string $group
      *
      * @return string
      *
      * @throws RegexFailed
      */
-    public function group(int $index): string
+    public function group($group): string
     {
-        if (! isset($this->matches[$index])) {
-            throw RegexFailed::indexedGroupDoesntExist($this->pattern, $this->subject, $index);
+        if (! isset($this->matches[$group])) {
+            throw RegexFailed::groupDoesntExist($this->pattern, $this->subject, $group);
         }
 
-        return $this->matches[$index];
+        return $this->matches[$group];
     }
 
     /**
      * Match group by index or return default value if group doesn't exist.
      *
-     * @param int $index
-     * @param string $default
+     * @param int|string $group
+     * @param string     $default
      *
      * @return string
      *
      * @throws RegexFailed
      */
-    public function groupOr(int $index, $default): string
+    public function groupOr($group, $default): string
     {
         try {
-            return $this->group($index);
+            return $this->group($group);
         } catch (RegexFailed $e) {
             return $default;
         }
     }
 
     /**
-     * Match group by name.
+     * Match group by index or name.
      *
-     * @param string $groupName
+     * @param int|string $group
      *
      * @return string
      *
      * @throws RegexFailed
      */
-    public function namedGroup(string $groupName): string
+    public function namedGroup($group): string
     {
-        if (! isset($this->matches[$groupName])) {
-            throw RegexFailed::namedGroupDoesntExist($this->pattern, $this->subject, $groupName);
-        }
-
-        return $this->matches[$groupName];
+    	  return $this->group($group);
     }
 }

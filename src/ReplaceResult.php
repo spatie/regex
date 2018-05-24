@@ -30,6 +30,14 @@ class ReplaceResult extends RegexResult
         $this->count = $count;
     }
 
+    /**
+     * @param string|array $pattern
+     * @param string|array|callable $replacement
+     * @param string|array $subject
+     * @param int $limit
+     *
+     * @return \Spatie\Regex\ReplaceResult
+     */
     public static function for($pattern, $replacement, $subject, $limit)
     {
         try {

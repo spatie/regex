@@ -65,4 +65,32 @@ class MatchAllTest extends TestCase
         $this->assertEquals('ab', $results[1]->result());
         $this->assertEquals('b', $results[1]->group(1));
     }
+
+    /** @test */
+    public function it_can_match_multiple_named_groups()
+    {
+        $results = Regex::matchAll('/the sky is (?<color>.+)/', <<<'TEXT'
+the sky is blue
+foo bar
+the sky is green
+the sky is red
+bar baz
+the sky is white
+TEXT
+        )->results();
+
+        $this->assertCount(4, $results);
+        $this->assertEquals('the sky is blue', $results[0]->result());
+        $this->assertEquals('blue', $results[0]->group('color'));
+        $this->assertEquals('blue', $results[0]->group(1));
+        $this->assertEquals('the sky is green', $results[1]->result());
+        $this->assertEquals('green', $results[1]->group('color'));
+        $this->assertEquals('green', $results[1]->group(1));
+        $this->assertEquals('the sky is red', $results[2]->result());
+        $this->assertEquals('red', $results[2]->group('color'));
+        $this->assertEquals('red', $results[2]->group(1));
+        $this->assertEquals('the sky is white', $results[3]->result());
+        $this->assertEquals('white', $results[3]->group('color'));
+        $this->assertEquals('white', $results[3]->group(1));
+    }
 }
