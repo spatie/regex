@@ -20,7 +20,7 @@ Regex::match('/a/', 'abc')->result(); // 'a'
 
 // Capturing groups with `match`
 Regex::match('/a(b)/', 'abc')->result(); // 'ab'
-Regex::match('/a(b)/', 'abc')->group(1); // 'a'
+Regex::match('/a(b)/', 'abc')->group(1); // 'b'
 
 // Setting defaults
 Regex::match('/a(b)/', 'xyz')->resultOr('default'); // 'default'
