@@ -99,8 +99,6 @@ class MatchResult extends RegexResult
      * @param string     $default
      *
      * @return string
-     *
-     * @throws RegexFailed
      */
     public function groupOr($group, $default): string
     {
