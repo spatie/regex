@@ -2,6 +2,10 @@
 
 All Notable changes to `regex` will be documented in this file
 
+## 1.3.1 - 2018-10-18
+
+- fix for PHP 7.3
+
 ## 1.3.0 - 2018-05-24
 - Treat named groups the same way as regular groups
 
