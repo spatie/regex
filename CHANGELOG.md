@@ -2,6 +2,10 @@
 
 All Notable changes to `regex` will be documented in this file
 
+## 1.3.2 - 2018-10-29
+
+- fix determining the last preg error
+
 ## 1.3.1 - 2018-10-18
 
 - fix for PHP 7.3
