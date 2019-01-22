@@ -85,11 +85,21 @@ class MatchResult extends RegexResult
      */
     public function group($group): string
     {
-        if (! isset($this->matches[$group])) {
+        if (!isset($this->matches[$group])) {
             throw RegexFailed::groupDoesntExist($this->pattern, $this->subject, $group);
         }
 
         return $this->matches[$group];
+    }
+
+    /**
+     * Return an array of the matches
+     *
+     * @return array
+     */
+    public function groups()
+    {
+        return $this->matches;
     }
 
     /**
