@@ -97,7 +97,7 @@ class MatchResult extends RegexResult
      *
      * @return array
      */
-    public function groups()
+    public function groups(): array
     {
         return $this->matches;
     }
