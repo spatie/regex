@@ -85,7 +85,7 @@ class MatchResult extends RegexResult
      */
     public function group($group): string
     {
-        if (!isset($this->matches[$group])) {
+        if (! isset($this->matches[$group])) {
             throw RegexFailed::groupDoesntExist($this->pattern, $this->subject, $group);
         }
 
@@ -93,7 +93,7 @@ class MatchResult extends RegexResult
     }
 
     /**
-     * Return an array of the matches
+     * Return an array of the matches.
      *
      * @return array
      */
