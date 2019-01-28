@@ -71,6 +71,16 @@ class MatchTest extends TestCase
     }
 
     /** @test */
+    public function it_can_retrieve_all_matched_groups()
+    {
+        $results = Regex::match('/(a)bc/', 'abcdef')->groups();
+
+        $this->assertCount(2, $results);
+        $this->assertEquals('abc', $results[0]);
+        $this->assertEquals('a', $results[1]);
+    }
+
+    /** @test */
     public function it_throws_an_exception_if_a_non_existing_named_group_is_queued()
     {
         $this->expectException(RegexFailed::class);
