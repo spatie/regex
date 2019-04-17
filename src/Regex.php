@@ -27,6 +27,17 @@ class Regex
     }
 
     /**
+     * @param string $pattern
+     * @param string $subject
+     *
+     * @return \Spatie\Regex\OffsetMatchResult
+     */
+    public static function matchWithOffset(string $pattern, string $subject): OffsetMatchResult
+    {
+        return OffsetMatchResult::for($pattern, $subject);
+    }
+
+    /**
      * @param string|array $pattern
      * @param string|array|callable $replacement
      * @param string|array $subject
