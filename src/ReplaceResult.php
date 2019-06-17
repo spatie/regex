@@ -41,7 +41,7 @@ class ReplaceResult extends RegexResult
     public static function for($pattern, $replacement, $subject, $limit)
     {
         try {
-            list($result, $count) = is_callable($replacement) ?
+            list($result, $count) = (is_callable($replacement) && $replacement != '_') ?
                 static::doReplacementWithCallable($pattern, $replacement, $subject, $limit) :
                 static::doReplacement($pattern, $replacement, $subject, $limit);
         } catch (Exception $exception) {
