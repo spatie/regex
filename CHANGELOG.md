@@ -2,7 +2,7 @@
 
 All Notable changes to `regex` will be documented in this file
 
-## 1.3.3 - 2019-06-19
+## 1.4.1 - 2019-06-19
 
 - fix for #37
 
