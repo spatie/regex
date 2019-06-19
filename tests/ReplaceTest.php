@@ -32,6 +32,12 @@ class ReplaceTest extends TestCase
     }
 
     /** @test */
+    public function it_can_use_an_existing_function_name_as_replacement_string()
+    {
+        $this->assertEquals('_b_b', Regex::replace('/a/', '_', 'abab')->result());
+    }
+
+    /** @test */
     public function it_can_replace_an_array_of_patterns_with_a_replacement()
     {
         $this->assertEquals('cccc', Regex::replace(['/a/', '/b/'], 'c', 'aabb')->result());
