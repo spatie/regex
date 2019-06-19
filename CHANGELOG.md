@@ -2,6 +2,10 @@
 
 All Notable changes to `regex` will be documented in this file
 
+## 1.3.3 - 2019-06-19
+
+- fix for #37
+
 ## 1.3.2 - 2018-10-29
 
 - fix determining the last preg error
