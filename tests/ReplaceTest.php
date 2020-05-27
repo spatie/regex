@@ -2,9 +2,9 @@
 
 namespace Spatie\Regex\Test;
 
-use Spatie\Regex\Regex;
-use Spatie\Regex\MatchResult;
 use PHPUnit\Framework\TestCase;
+use Spatie\Regex\MatchResult;
+use Spatie\Regex\Regex;
 
 class ReplaceTest extends TestCase
 {
