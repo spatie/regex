@@ -31,17 +31,17 @@ class ReplaceResult extends RegexResult
     }
 
     /**
-     * @param string|array $pattern
+     * @param string|array          $pattern
      * @param string|array|callable $replacement
-     * @param string|array $subject
-     * @param int $limit
+     * @param string|array          $subject
+     * @param int                   $limit
      *
      * @return \Spatie\Regex\ReplaceResult
      */
     public static function for($pattern, $replacement, $subject, $limit)
     {
         try {
-            [$result, $count] = ! is_string($replacement) && is_callable($replacement) ?
+            [$result, $count] = !is_string($replacement) && is_callable($replacement) ?
                 static::doReplacementWithCallable($pattern, $replacement, $subject, $limit) :
                 static::doReplacement($pattern, $replacement, $subject, $limit);
         } catch (Exception $exception) {

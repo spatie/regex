@@ -31,9 +31,9 @@ class MatchAllResult extends RegexResult
      * @param string $pattern
      * @param string $subject
      *
-     * @return static
-     *
      * @throws \Spatie\Regex\RegexFailed
+     *
+     * @return static
      */
     public static function for(string $pattern, string $subject)
     {

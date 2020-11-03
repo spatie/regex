@@ -30,9 +30,9 @@ class MatchResult extends RegexResult
      * @param string $pattern
      * @param string $subject
      *
-     * @return static
-     *
      * @throws \Spatie\Regex\RegexFailed
+     *
+     * @return static
      */
     public static function for(string $pattern, string $subject)
     {
@@ -79,13 +79,13 @@ class MatchResult extends RegexResult
      *
      * @param int|string $group
      *
-     * @return string
-     *
      * @throws RegexFailed
+     *
+     * @return string
      */
     public function group($group): string
     {
-        if (! isset($this->matches[$group])) {
+        if (!isset($this->matches[$group])) {
             throw RegexFailed::groupDoesntExist($this->pattern, $this->subject, $group);
         }
 
@@ -124,9 +124,9 @@ class MatchResult extends RegexResult
      *
      * @param int|string $group
      *
-     * @return string
-     *
      * @throws RegexFailed
+     *
+     * @return string
      */
     public function namedGroup($group): string
     {

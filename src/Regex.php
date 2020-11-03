@@ -27,10 +27,10 @@ class Regex
     }
 
     /**
-     * @param string|array $pattern
+     * @param string|array          $pattern
      * @param string|array|callable $replacement
-     * @param string|array $subject
-     * @param int $limit
+     * @param string|array          $subject
+     * @param int                   $limit
      *
      * @return \Spatie\Regex\ReplaceResult
      */
