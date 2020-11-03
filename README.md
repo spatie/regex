@@ -2,9 +2,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/regex.svg?style=flat-square)](https://packagist.org/packages/spatie/regex)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/regex/master.svg?style=flat-square)](https://travis-ci.org/spatie/regex)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/regex.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/regex)
-[![StyleCI](https://styleci.io/repos/65915598/shield)](https://styleci.io/repos/65915598)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/regex.svg?style=flat-square)](https://packagist.org/packages/spatie/regex)
 
 Php's built in `preg_*` functions require some odd patterns like passing variables by reference and treating `false` or `null` values as errors. `spatie/regex` provides a cleaner interface for `preg_match`, `preg_match_all`, `preg_replace` and `preg_replace_callback`.
