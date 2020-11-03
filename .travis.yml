@@ -5,6 +5,7 @@ php:
   - 7.1
   - 7.2
   - 7.3
+  - 7.4
 
 env:
   matrix:
@@ -16,7 +17,7 @@ before_script:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
 
 script:
-  - phpunit --coverage-text --coverage-clover=coverage.clover
+  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
   - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
