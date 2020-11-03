@@ -2,6 +2,11 @@
 
 All Notable changes to `regex` will be documented in this file
 
+## 1.4.2 - 2020-11-04
+
+- add support for PHP 8.0
+- drop anything below PHP 7.3
+
 ## 1.4.1 - 2019-06-19
 
 - fix for #37
