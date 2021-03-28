@@ -8,7 +8,7 @@ class ReplaceResult extends RegexResult
 {
     public function __construct(
         protected string | array $pattern,
-        protected string | array $replacement,
+        protected mixed $replacement,
         protected string | array $subject,
         protected string | array $result,
         protected int $count,
