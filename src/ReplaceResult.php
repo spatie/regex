@@ -17,8 +17,12 @@ class ReplaceResult extends RegexResult
         //
     }
 
-    public static function for(string | array $pattern, string | array | callable $replacement,
-                               string | array $subject, int $limit): static
+    public static function for(
+        string | array $pattern,
+        string | array | callable $replacement,
+        string | array $subject,
+        int $limit
+    ): static
     {
         try {
             [$result, $count] = ! is_string($replacement) && is_callable($replacement) ?
@@ -35,8 +39,12 @@ class ReplaceResult extends RegexResult
         return new static($pattern, $replacement, $subject, $result, $count);
     }
 
-    protected static function doReplacement(string | array $pattern, string | array | callable $replacement,
-                                            string | array $subject, int $limit): array
+    protected static function doReplacement(
+        string | array $pattern,
+        string | array | callable $replacement,
+        string | array $subject,
+        int $limit
+    ): array
     {
         $count = 0;
 
@@ -45,8 +53,12 @@ class ReplaceResult extends RegexResult
         return [$result, $count];
     }
 
-    protected static function doReplacementWithCallable(string | array $pattern, callable $replacement,
-                                                        string | array $subject, int $limit): array
+    protected static function doReplacementWithCallable(
+        string | array $pattern,
+        callable $replacement,
+        string | array $subject,
+        int $limit
+    ): array
     {
         $replacement = function (array $matches) use ($pattern, $subject, $replacement) {
             return $replacement(new MatchResult($pattern, $subject, true, $matches));

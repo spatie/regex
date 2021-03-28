@@ -14,8 +14,12 @@ class Regex
         return MatchAllResult::for($pattern, $subject);
     }
 
-    public static function replace(string | array $pattern, string | array | callable $replacement,
-                                   string | array $subject, int $limit = -1): ReplaceResult
+    public static function replace(
+        string | array $pattern,
+        string | array | callable $replacement,
+        string | array $subject,
+        int $limit = -1
+    ): ReplaceResult
     {
         return ReplaceResult::for($pattern, $replacement, $subject, $limit);
     }

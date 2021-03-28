@@ -2,9 +2,9 @@
 
 namespace Spatie\Regex\Test;
 
-use Spatie\Regex\Regex;
-use Spatie\Regex\Exceptions\RegexFailed;
 use PHPUnit\Framework\TestCase;
+use Spatie\Regex\Exceptions\RegexFailed;
+use Spatie\Regex\Regex;
 
 class MatchAllTest extends TestCase
 {
@@ -69,7 +69,9 @@ class MatchAllTest extends TestCase
     /** @test */
     public function it_can_match_multiple_named_groups()
     {
-        $results = Regex::matchAll('/the sky is (?<color>.+)/', <<<'TEXT'
+        $results = Regex::matchAll(
+            '/the sky is (?<color>.+)/',
+            <<<'TEXT'
 the sky is blue
 foo bar
 the sky is green

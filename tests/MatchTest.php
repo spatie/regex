@@ -2,9 +2,9 @@
 
 namespace Spatie\Regex\Test;
 
-use Spatie\Regex\Regex;
-use Spatie\Regex\Exceptions\RegexFailed;
 use PHPUnit\Framework\TestCase;
+use Spatie\Regex\Exceptions\RegexFailed;
+use Spatie\Regex\Regex;
 
 class MatchTest extends TestCase
 {
