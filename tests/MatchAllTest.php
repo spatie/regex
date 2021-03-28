@@ -3,7 +3,7 @@
 namespace Spatie\Regex\Test;
 
 use Spatie\Regex\Regex;
-use Spatie\Regex\RegexFailed;
+use Spatie\Regex\Exceptions\RegexFailed;
 use PHPUnit\Framework\TestCase;
 
 class MatchAllTest extends TestCase

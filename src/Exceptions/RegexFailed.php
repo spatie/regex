@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Regex;
+namespace Spatie\Regex\Exceptions;
 
 use Exception;
 

@@ -3,6 +3,7 @@
 namespace Spatie\Regex;
 
 use Exception;
+use Spatie\Regex\Exceptions\RegexFailed;
 
 class ReplaceResult extends RegexResult
 {
