@@ -2,6 +2,13 @@
 
 All Notable changes to `regex` will be documented in this file
 
+## 2.0.0 - unreleased
+
+- require PHP 8+
+- drop support for PHP 7.x
+- convert syntax to PHP 8
+- move exceptions to "Exceptions" directory to match structure of other packages
+
 ## 1.4.2 - 2020-11-04
 
 - add support for PHP 8.0
