@@ -22,8 +22,7 @@ class ReplaceResult extends RegexResult
         string | array | callable $replacement,
         string | array $subject,
         int $limit
-    ): static
-    {
+    ): static {
         try {
             [$result, $count] = ! is_string($replacement) && is_callable($replacement) ?
                 static::doReplacementWithCallable($pattern, $replacement, $subject, $limit) :
@@ -44,8 +43,7 @@ class ReplaceResult extends RegexResult
         string | array | callable $replacement,
         string | array $subject,
         int $limit
-    ): array
-    {
+    ): array {
         $count = 0;
 
         $result = preg_replace($pattern, $replacement, $subject, $limit, $count);
@@ -58,8 +56,7 @@ class ReplaceResult extends RegexResult
         callable $replacement,
         string | array $subject,
         int $limit
-    ): array
-    {
+    ): array {
         $replacement = function (array $matches) use ($pattern, $subject, $replacement) {
             return $replacement(new MatchResult($pattern, $subject, true, $matches));
         };

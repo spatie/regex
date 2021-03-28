@@ -19,8 +19,7 @@ class Regex
         string | array | callable $replacement,
         string | array $subject,
         int $limit = -1
-    ): ReplaceResult
-    {
+    ): ReplaceResult {
         return ReplaceResult::for($pattern, $replacement, $subject, $limit);
     }
 }
