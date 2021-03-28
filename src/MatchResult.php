@@ -38,7 +38,7 @@ class MatchResult extends RegexResult
         return $this->hasMatch;
     }
 
-    public function result(): string | null
+    public function result(): ?string
     {
         return $this->matches[0] ?? null;
     }
