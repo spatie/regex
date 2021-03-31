@@ -2,7 +2,7 @@
 
 All Notable changes to `regex` will be documented in this file
 
-## 2.0.0 - unreleased
+## 2.0.0 - 2021-03-31
 
 - require PHP 8+
 - drop support for PHP 7.x
