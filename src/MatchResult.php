@@ -3,38 +3,20 @@
 namespace Spatie\Regex;
 
 use Exception;
+use Spatie\Regex\Exceptions\RegexFailed;
 
 class MatchResult extends RegexResult
 {
-    /** @var string */
-    protected $pattern;
-
-    /** @var string */
-    protected $subject;
-
-    /** @var bool */
-    protected $hasMatch;
-
-    /** @var array */
-    protected $matches;
-
-    public function __construct(string $pattern, string $subject, bool $hasMatch, array $matches)
-    {
-        $this->pattern = $pattern;
-        $this->subject = $subject;
-        $this->hasMatch = $hasMatch;
-        $this->matches = $matches;
+    public function __construct(
+        protected string $pattern,
+        protected string $subject,
+        protected bool $hasMatch,
+        protected array $matches,
+    ) {
+        //
     }
 
-    /**
-     * @param string $pattern
-     * @param string $subject
-     *
-     * @return static
-     *
-     * @throws \Spatie\Regex\RegexFailed
-     */
-    public static function for(string $pattern, string $subject)
+    public static function for(string $pattern, string $subject): static
     {
         $matches = [];
 
@@ -56,20 +38,12 @@ class MatchResult extends RegexResult
         return $this->hasMatch;
     }
 
-    /**
-     * @return string|null
-     */
-    public function result()
+    public function result(): ?string
     {
         return $this->matches[0] ?? null;
     }
 
-    /**
-     * @param string $default
-     *
-     * @return string
-     */
-    public function resultOr($default)
+    public function resultOr(string $default): string
     {
         return $this->result() ?? $default;
     }
@@ -83,7 +57,7 @@ class MatchResult extends RegexResult
      *
      * @throws RegexFailed
      */
-    public function group($group): string
+    public function group(int | string $group): string
     {
         if (! isset($this->matches[$group])) {
             throw RegexFailed::groupDoesntExist($this->pattern, $this->subject, $group);
@@ -110,7 +84,7 @@ class MatchResult extends RegexResult
      *
      * @return string
      */
-    public function groupOr($group, $default): string
+    public function groupOr(int | string $group, string $default): string
     {
         try {
             return $this->group($group);
@@ -128,7 +102,7 @@ class MatchResult extends RegexResult
      *
      * @throws RegexFailed
      */
-    public function namedGroup($group): string
+    public function namedGroup(int | string $group): string
     {
         return $this->group($group);
     }

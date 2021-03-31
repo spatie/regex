@@ -3,39 +3,21 @@
 namespace Spatie\Regex;
 
 use Exception;
+use Spatie\Regex\Exceptions\RegexFailed;
 use Spatie\Regex\Helpers\Arr;
 
 class MatchAllResult extends RegexResult
 {
-    /** @var string */
-    protected $pattern;
-
-    /** @var string */
-    protected $subject;
-
-    /** @var bool */
-    protected $hasMatch;
-
-    /** @var array */
-    protected $matches;
-
-    public function __construct(string $pattern, string $subject, bool $result, array $matches)
-    {
-        $this->pattern = $pattern;
-        $this->subject = $subject;
-        $this->hasMatch = $result;
-        $this->matches = $matches;
+    public function __construct(
+        protected string $pattern,
+        protected string $subject,
+        protected bool $result,
+        protected array $matches,
+    ) {
+        //
     }
 
-    /**
-     * @param string $pattern
-     * @param string $subject
-     *
-     * @return static
-     *
-     * @throws \Spatie\Regex\RegexFailed
-     */
-    public static function for(string $pattern, string $subject)
+    public static function for(string $pattern, string $subject): static
     {
         $matches = [];
 
@@ -54,7 +36,7 @@ class MatchAllResult extends RegexResult
 
     public function hasMatch(): bool
     {
-        return $this->hasMatch;
+        return $this->result;
     }
 
     /**

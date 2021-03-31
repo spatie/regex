@@ -33,12 +33,7 @@ class Arr
         return $result;
     }
 
-    /**
-     * @param array $array
-     *
-     * @return mixed
-     */
-    public static function first(array $array)
+    public static function first(array $array): mixed
     {
         return reset($array);
     }
