@@ -6,9 +6,7 @@ class Str
 {
     public static function endsWith(string $haystack, string $needle): bool
     {
-        // str_ends_with() will return false for an empty string
-        $length = strlen($needle);
-        if ($length == 0) {
+        if (strlen($needle) === 0) {
             return true;
         }
         
