@@ -2,6 +2,10 @@
 
 All Notable changes to `regex` will be documented in this file
 
+## 2.0.1 - 20201-04-20
+
+- small internal refactor
+
 ## 2.0.0 - 2021-03-31
 
 - require PHP 8+
