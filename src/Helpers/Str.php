@@ -6,11 +6,6 @@ class Str
 {
     public static function endsWith(string $haystack, string $needle): bool
     {
-        $length = strlen($needle);
-        if ($length == 0) {
-            return true;
-        }
-
-        return substr($haystack, -$length) === $needle;
+        return str_ends_with($haystack, $needle);
     }
 }
