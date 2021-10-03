@@ -21,7 +21,7 @@ class MatchResult extends RegexResult
         $matches = [];
 
         try {
-            $result = preg_match($pattern, $subject, $matches);
+            $result = preg_match($pattern, $subject, $matches, PREG_UNMATCHED_AS_NULL);
         } catch (Exception $exception) {
             throw RegexFailed::match($pattern, $subject, $exception->getMessage());
         }
