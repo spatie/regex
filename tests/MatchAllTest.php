@@ -67,6 +67,16 @@ class MatchAllTest extends TestCase
     }
 
     /** @test */
+    public function it_can_include_unmatched_subpatterns_as_null()
+    {
+        $results = Regex::matchAll('/(?<A>a)|(?<B>b)/', 'a')->results()[0]->groups();
+
+        $this->assertCount(5, $results);
+        $this->assertNull($results['B']);
+        $this->assertNull($results[2]);
+    }
+
+    /** @test */
     public function it_can_match_multiple_named_groups()
     {
         $results = Regex::matchAll(
