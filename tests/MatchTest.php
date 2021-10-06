@@ -81,6 +81,16 @@ class MatchTest extends TestCase
     }
 
     /** @test */
+    public function it_can_include_unmatched_subpatterns_as_null()
+    {
+        $results = Regex::match('/(?<A>a)|(?<B>b)/', 'a')->groups();
+
+        $this->assertCount(5, $results);
+        $this->assertNull($results['B']);
+        $this->assertNull($results[2]);
+    }
+
+    /** @test */
     public function it_throws_an_exception_if_a_non_existing_named_group_is_queued()
     {
         $this->expectException(RegexFailed::class);

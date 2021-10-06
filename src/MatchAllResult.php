@@ -22,7 +22,7 @@ class MatchAllResult extends RegexResult
         $matches = [];
 
         try {
-            $result = preg_match_all($pattern, $subject, $matches);
+            $result = preg_match_all($pattern, $subject, $matches, PREG_UNMATCHED_AS_NULL);
         } catch (Exception $exception) {
             throw RegexFailed::match($pattern, $subject, $exception->getMessage());
         }
