@@ -2,7 +2,11 @@
 
 All Notable changes to `regex` will be documented in this file
 
-## 2.0.1 - 20201-04-20
+## 3.0.0 - 2021-10-06
+
+- implement `PREG_UNMATCHED_AS_NULL` (#61)
+
+## 2.0.1 - 2021-04-20
 
 - small internal refactor
 
