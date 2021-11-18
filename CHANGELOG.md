@@ -2,6 +2,12 @@
 
 All Notable changes to `regex` will be documented in this file
 
+## 3.1.0 - 2021-11-18
+
+- Add support for PHP 8.1
+
+**Full Changelog**: https://github.com/spatie/regex/compare/3.0.0...3.1.0
+
 ## 3.0.0 - 2021-10-06
 
 - implement `PREG_UNMATCHED_AS_NULL` (#61)
@@ -35,12 +41,15 @@ All Notable changes to `regex` will be documented in this file
 - fix for PHP 7.3
 
 ## 1.3.0 - 2018-05-24
+
 - Treat named groups the same way as regular groups
 
 ## 1.2.0 - 2017-09-04
+
 - Added `resultOr` and `groupOr` methods
 
 ## 1.1.0 - 2016-09-15
+
 - Added `namedGroup`
 
 ## 1.0.0 - 2016-08-18
