@@ -2,6 +2,18 @@
 
 All Notable changes to `regex` will be documented in this file
 
+## 3.1.1 - 2021-11-30
+
+## What's Changed
+
+- Use nicer error messages by @Seldaek in https://github.com/spatie/regex/pull/64
+
+## New Contributors
+
+- @Seldaek made their first contribution in https://github.com/spatie/regex/pull/64
+
+**Full Changelog**: https://github.com/spatie/regex/compare/3.1.0...3.1.1
+
 ## 3.1.0 - 2021-11-18
 
 - Add support for PHP 8.1
