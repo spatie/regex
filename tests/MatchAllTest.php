@@ -48,7 +48,7 @@ class MatchAllTest extends TestCase
     {
         $this->expectException(RegexFailed::class);
         $this->expectExceptionMessage(
-            RegexFailed::match('/(?:\D+|<\d+>)*[!?]/', 'foobar foobar foobar', 'PREG_BACKTRACK_LIMIT_ERROR')->getMessage()
+            RegexFailed::match('/(?:\D+|<\d+>)*[!?]/', 'foobar foobar foobar', 'Backtrack limit exhausted')->getMessage()
         );
 
         Regex::matchAll('/(?:\D+|<\d+>)*[!?]/', 'foobar foobar foobar');
