@@ -1,7 +1,10 @@
+# This is a fork of Spatie/Regex
+## The goal is to make inclusion of this utility class easier
+* Focus will be on consolidation of files into a single includable php file (in this Repo)
+* A separate repo will be created to contain a Joomla library and installation plugin
+<br>
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
-# Making regex great again
+# Making regex great again (for PHP)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/regex.svg?style=flat-square)](https://packagist.org/packages/spatie/regex)
 ![Tests](https://github.com/spatie/regex/workflows/Tests/badge.svg)
