@@ -80,7 +80,7 @@ class MatchAllTest extends TestCase
     public function it_can_match_multiple_named_groups()
     {
         $results = Regex::matchAll(
-            '/the sky is (?<color>.+)/',
+            '/the sky is (?<color>[^\r\n]+)/',
             <<<'TEXT'
 the sky is blue
 foo bar
