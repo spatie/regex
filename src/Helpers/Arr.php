@@ -14,9 +14,7 @@ class Arr
         if (count($array) === 1) {
             $array = static::first($array);
 
-            return array_map(function ($element) {
-                return [$element];
-            }, $array);
+            return array_map(fn ($element) => [$element], $array);
         }
 
         $numHits = count($array[0]);
